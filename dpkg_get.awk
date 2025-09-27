@@ -83,7 +83,7 @@ END {
         else if (flag ~ /d/ && flag ~ /h/ && flag !~ /q/) {printf "%sholds:%s %d %sdeinstalls:%s %d\n", color_hold, reset, h, color_deinstall, reset, d}
         else if (flag ~ /[hi]+/ && flag !~ /q/) {printf "%stotal:%s %d (%d %sholds%s)\n", color_total, reset, t, h, color_hold, reset}
     } 
-    if ((flag == "-d" || flag ~ /d/ && flag ~ /H/) && flag !~ /q/) {printf "%sdeinstalls:%s %d\n", color_deinstall, reset, d}
+    if ((flag == "-d" || flag !~ /i/ && flag ~ /H/) && flag !~ /q/) {printf "%sdeinstalls:%s %d\n", color_deinstall, reset, d}
     else if (flag ~ /i/ && flag ~ /H/ && flag !~ /d|q/) {printf "%sinstalls:%s %d\n", color_install, reset, inst}
     else if (flag ~ /i/ && flag ~ /H/ && flag !~ /q/) {printf "%sinstalls:%s %d %sdeinstalls:%s %d\n", color_install, reset, inst, color_deinstall, reset, d}
 }
