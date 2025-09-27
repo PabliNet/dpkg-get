@@ -4,9 +4,14 @@ LANG_SHORT=${LANG%%_*}
 BOLD="$(printf '\033[1m')"
 DEINST="$(printf '\033[1;38;5;196m')"
 RESET="$(printf '\033[0m')"
-DIR=$(dirname $0)
-COMMAND=$(basename $0)
-FILE_AWK=$(printf "%s/dpkg_get.awk" $DIR)
+DIR="$(dirname $0)"
+COMMAND="$(basename $0)"
+FILENAME_AWK='dpkg_get.awk'
+case "$DIR" in
+    '/usr/local/bin') FILE_AWK=$(printf "/opt/dpkg_get/%s" $FILENAME_AWK) ;;
+    '/usr/bin') FILE_AWK=$(printf "/usr/share/pablinet_dpkg_get/%s" $FILENAME_AWK) ;;
+    *) FILE_AWK=$(printf "%s/%s" $DIR $FILENAME_AWK) ;;
+esac
 version=0.1
 
 help() {
