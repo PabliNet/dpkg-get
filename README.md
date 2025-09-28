@@ -14,6 +14,28 @@
 
 ## Install
 
+### From ATP as root or with `sudo`
+
+Add APT Key with **curl**:
+
+```bash
+curl -fsSL https://pablinet.github.io/apt/pablinet.gpg -o /etc/apt/trusted.gpg.d/pablinet.gpg```
+```
+
+Add APT Key with **wget**:
+
+```bash
+wget -O /etc/apt/trusted.gpg.d/pablinet.gpg https://pablinet.github.io/apt/pablinet.gpg
+```
+
+Update and install:
+
+```
+apt update && apt install dpkg-get
+```
+
+### From GitHub
+
 Download:
 
 ```sh
